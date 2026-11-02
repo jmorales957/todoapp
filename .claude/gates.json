@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "gates": {
+    "lint": {
+      "fix": "pnpm exec eslint --fix {files}",
+      "check": "pnpm run lint",
+      "on": ["edit", "commit"],
+      "status": "ready",
+      "extensions": [".ts"]
+    },
+    "test": {
+      "related": "pnpm exec vitest related --run --passWithNoTests {files}",
+      "check": "pnpm test",
+      "on": ["stop", "commit"],
+      "status": "ready",
+      "extensions": [".ts"]
+    }
+  }
+}
